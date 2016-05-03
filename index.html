@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<head>
+	<title>Node-RED Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image:url(images/background.jpg)">
+	<header class="_demo--heading">
+		<div class="_demo--container">
+			<a class="wordmark" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">
+				<span class="wordmark--left">IBM</span>
+				<span class="wordmark--right">Watson Developer Cloud</span>
+			</a>
+			<nav class="heading-nav" role="menubar">
+			<li class="base--li heading-nav--li" role="presentation">
+				<a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html" role="menuitem">
+						Services
+				</a>
+			</li>
+			<li class="base--li heading-nav--li" role="presentation">
+				<a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/" role="menuitem">
+						Docs
+				</a>
+			</li>
+			<li class="base--li heading-nav--li" role="presentation">
+				<a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html" role="menuitem">
+						App Gallery
+				</a>
+			</li>
+			<li class="base--li heading-nav--li" role="presentation">
+				<a class="heading-nav--item" href="https://developer.ibm.com/watson/" role="menuitem">
+						Community
+				</a>
+			</li>
+			</nav>
+		</div>
+	</header>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<div class="jumbotron row" style="vertical-align:middle;">
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+			<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="margin:auto">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<a href="http://nodered.org/">
+						<img class="banner--service-icon" src="images/nodered.png" alt="Node-RED icon">
+					</a>
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+					<p>Develop an application in minutes with Node-RED and IBM Watson Developer Cloud</p>
+				</div>
+			</div>
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+		</div>
+		<div class="row tab-panels">
+			<div class="row">
+				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+					<textarea id="text" rows="10" cols="100" placeholder="Type your text here"></textarea>
+				</div>
+				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="margin-left:2%">
+					<div class="row"></div>
+					<div class="row">
+						<button type="button" class="btn btn-success btn-block" onclick="submit();">Submit</button>
+					</div>
+					<div class="row">
+						<button type="button" class="btn btn-danger btn-block" onclick="clear();">Clear</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="container">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						<p>URL</p>
+						<input id="url" type="text" placeholder="URL to submit the text" size="100%"></input>
+					</div>
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+	<audio autoplay id="audioTag">
+		Your browser does not support the audio tag.
+	</audio> 
+	<script>
+		function submit() {
+			var text = document.getElementById("text");
+			console.log(text.value);
+			var url = document.getElementById("url");
+			console.log(url.value);
+			if (url.value != "") {
+				var audio = document.getElementById("audioTag");
+				audio.src = url.value + '?text=' + text.value;
+				console.log(audio.src);
+			}
+		}
+		
+		function clear() {
+			var text = document.getElementById("text");
+			console.log(text);
+		}
+	</script>
+</body>
+	
