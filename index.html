@@ -68,7 +68,7 @@
 						<button type="button" class="btn btn-success btn-block" onclick="submit();">Submit</button>
 					</div>
 					<div class="row">
-						<button type="button" class="btn btn-danger btn-block" onclick="clear();">Clear</button>
+						<button type="button" class="btn btn-danger btn-block" onclick="clearText();">Clear</button>
 					</div>
 				</div>
 			</div>
@@ -91,19 +91,16 @@
 	<script>
 		function submit() {
 			var text = document.getElementById("text");
-			console.log(text.value);
 			var url = document.getElementById("url");
-			console.log(url.value);
 			if (url.value != "") {
 				var audio = document.getElementById("audioTag");
 				audio.src = url.value + '?text=' + text.value;
-				console.log(audio.src);
 			}
 		}
 		
-		function clear() {
+		function clearText() {
 			var text = document.getElementById("text");
-			console.log(text);
+			text.value = "";
 		}
 	</script>
 </body>
